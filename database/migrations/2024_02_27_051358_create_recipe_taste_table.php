@@ -15,6 +15,8 @@ class CreateRecipeTasteTable extends Migration
     {
         Schema::create('recipe_taste', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('receipe_id');
+            $table->unsignedBigInteger('taste_id');
             $table->timestamps();
         });
     }

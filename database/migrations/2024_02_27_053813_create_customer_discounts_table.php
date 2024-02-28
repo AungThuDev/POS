@@ -15,6 +15,8 @@ class CreateCustomerDiscountsTable extends Migration
     {
         Schema::create('customer_discounts', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('percent');
             $table->timestamps();
         });
     }
