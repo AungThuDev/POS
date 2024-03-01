@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\ImageService;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('Image',function(Application $app) {
+            return new ImageService();
+        });
+
     }
 
     /**

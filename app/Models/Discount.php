@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Discount extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'percent',
+    ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
 }
