@@ -789,7 +789,7 @@
         });
 
         // *APP URL* (ajax request)
-        let app_url = "http://localhost:8000"
+        // let app_url = "http://localhost:8000"
     </script>
 
     @yield('script')

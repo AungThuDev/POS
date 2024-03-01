@@ -34,7 +34,8 @@
                     <select name="customer_discount_id" class="form-select">
                         @if (!empty($customer_discounts))
                             @foreach ($customer_discounts as $customer_discount)
-                                <option id="customer_discount_{{$customer_discount->id}}" value="{{ $customer_discount->id }}">{{ $customer_discount->name }}</option>
+                                <option id="customer_discount_{{ $customer_discount->id }}"
+                                    value="{{ $customer_discount->id }}">{{ $customer_discount->name }}</option>
                             @endforeach
                         @endif
                     </select>
@@ -79,7 +80,7 @@
                 <div class="modal-body form-group">
                     <label class="form-label">Customer Discount</label>
                     <select id="edit_customer_discount_id" name="edit_customer_discount_id" class="form-control" disabled>
-                       
+
                     </select>
                     @error('edit_customer_discount_id')
                         <span class="d-block text-danger">{{ $message }}</span>
@@ -119,7 +120,7 @@
                 'severSide': true,
                 'processing': true,
                 'ajax': {
-                    url: `${app_url}/category_customer_discount`,
+                    url: `/category_customer_discount`,
                     error: function(e) {
                         console.log(e)
                     }
@@ -153,16 +154,17 @@
                     method: 'GET',
                     url: `${app_url}/category_customer_discount/${category_customer_discount_id}/edit`,
                     success: function(resp) {
-                        let route = `${app_url}/category_customer_discount/${resp['customer_discount_id']}`;
+                        let route =
+                            `${app_url}/category_customer_discount/${resp['customer_discount_id']}`;
                         $('#editForm').attr('action', route);
-                        let html = $("#customer_discount_"+resp['customer_discount_id'])[0].outerHTML;
+                        let html = $("#customer_discount_" + resp['customer_discount_id'])[0]
+                            .outerHTML;
                         $("#edit_customer_discount_id").html(html);
                         for (const id of resp['categories']) {
                             $("#edit_category_" + id).prop('checked', true);
                         }
                     },
-                    error: function(e) {
-                    }
+                    error: function(e) {}
                 });
             });
 
@@ -182,7 +184,8 @@
                             method: 'DELETE',
                             url: `${app_url}/category_customer_discount/${category_customer_discount_id}`,
                             success: function(resp) {
-                                $(`.category_customer_discount_${resp}`).addClass('d-none');
+                                $(`.category_customer_discount_${resp}`).addClass(
+                                    'd-none');
                             },
                             error: function(e) {}
                         })

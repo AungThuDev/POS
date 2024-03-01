@@ -24,7 +24,7 @@
     <!-- Add New Discount Modal -->
     <div class="modal fade" id="addNewDiscount" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{route('discount.store')}}" method="POST" class="modal-content">
+            <form action="{{ route('discount.store') }}" method="POST" class="modal-content">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title">Add New Discount</h5>
@@ -89,7 +89,7 @@
                 'severSide': true,
                 'processing': true,
                 'ajax': {
-                    url: `${app_url}/discount`,
+                    url: '/discount',
                     error: function(e) {
                         console.log(e)
                     }

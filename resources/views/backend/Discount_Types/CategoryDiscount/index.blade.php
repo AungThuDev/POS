@@ -120,7 +120,7 @@
                 'severSide': true,
                 'processing': true,
                 'ajax': {
-                    url: `${app_url}/category_discount`,
+                    url: `/category_discount`,
                     error: function(e) {
                         console.log(e)
                     }

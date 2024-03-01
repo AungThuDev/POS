@@ -45,7 +45,7 @@
 
     <!-- Edit Category Modal -->
     <div class="modal fade" id="editCategory" tabindex="-1" role="dialog" aria-hidden="true">
-        <div  class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <form id="editForm" method="POST" class="modal-content">
                 <input type="hidden" name="_method" value="PATCH">
                 @csrf
@@ -54,7 +54,8 @@
                 </div>
                 <div class="modal-body form-group">
                     <label class="form-label">Name</label>
-                    <input id="editName" name="editName" type="text" class="form-control" placeholder="Enter Category Name...">
+                    <input id="editName" name="editName" type="text" class="form-control"
+                        placeholder="Enter Category Name...">
                     @error('editName')
                         <span class="text-danger">{{ $message }}</span>
                     @enderror
@@ -76,7 +77,7 @@
                 'severSide': true,
                 'processing': true,
                 'ajax': {
-                    url: `${app_url}/category`,
+                    url: `/category`,
                     error: function(e) {
                         console.log(e)
                     }

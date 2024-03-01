@@ -89,7 +89,7 @@
                 'severSide': true,
                 'processing': true,
                 'ajax': {
-                    url: `${app_url}/customer`,
+                    url: `/customer`,
                     error: function(e) {
                         console.log(e)
                     }
